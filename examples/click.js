@@ -1,7 +1,6 @@
 var h = require('nhg/h')
 var State = require('nhg/state')
 var Value = require('nhg/value')
-var sendClick = require('nhg/send-click')
 var events = require('../events')
 
 function Click () {

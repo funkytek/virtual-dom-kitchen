@@ -1,15 +1,8 @@
 var RunApp = require('nhg/app')
 var h = require('nhg/h')
-var {div, button} = require('hyperscript-helpers')(h)
 var State = require('nhg/state')
-var Value = require('nhg/value')
-var sendClick = require('nhg/send-click')
-var sendSubmit = require('nhg/send-submit')
-var sendKey = require('nhg/send-key')
 var fs = require('fs')
 var highlight = require('highlight.js')
-var stripComments = require('strip-comments')
-
 var Click = require('./examples/click')
 var Input = require('./examples/input')
 var Form = require('./examples/form')
@@ -21,7 +14,6 @@ function getCode (file) {
 }
 
 function renderComponent (state, name, component, file) {
-
   var code = getCode(file)
 
   return [
@@ -31,9 +23,7 @@ function renderComponent (state, name, component, file) {
       h('pre', h('code', {innerHTML: code}))
     )
   ]
-
 }
-
 
 // TODO: document can't use name
 

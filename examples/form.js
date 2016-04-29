@@ -34,8 +34,8 @@ Form.render = function render (state) {
   return ([
     h('pre', [
       'first name: ' + (state.user.firstName || '') + '\n' +
-      'last name: '  + (state.user.lastName  || '') + '\n' +
-      'agreed: '     + (state.user.agree     || '') + '\n'
+      'last name: ' + (state.user.lastName || '') + '\n' +
+      'agreed: ' + (state.user.agree || '') + '\n'
     ]),
 
     h('form.ui.form', {
@@ -59,7 +59,7 @@ Form.render = function render (state) {
         h('div.ui.checkbox', [
           h('input', {type: 'checkbox', name: 'agree'}),
           h('label', 'I agree to terms and conditions')
-        ]),
+        ])
       ]),
 
       // Submit

@@ -21,8 +21,8 @@ var events = {
   blur: 'blur'
 }
 
-_.each(events, function(eventName, domEventName){
-  exports[eventName] = BaseEvent(function(event, broadcast){
+_.each(events, function (eventName, domEventName) {
+  exports[eventName] = BaseEvent(function (event, broadcast) {
     if (event.type !== domEventName) { return }
     var data = (this.options.getFormData)
       ? extend(getFormData(event.currentTarget), this.data)
