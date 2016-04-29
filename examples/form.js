@@ -4,11 +4,13 @@ var Value = require('nhg/value')
 var sendSubmit = require('nhg/send-submit')
 var _ = require('lodash')
 var classNames = require('classnames')
+var events = require('../events')
 
 function Form () {
   return State({
     user: Value({}),
     errors: Value({}),
+    submitted: Value(false),
     channels: {
       submit: submit
     }
@@ -16,6 +18,8 @@ function Form () {
 }
 
 function submit (state, data) {
+  console.log('submit', data)
+  state.submitted.set(true)
   // set user from submitted data
   state.user.set(data)
   // determine if there's errors
@@ -30,6 +34,8 @@ function checkErrors (state, field) {
   return {className: classNames({error: state.errors[field]})}
 }
 
+function noop () {}
+
 Form.render = function render (state) {
   return ([
     h('pre', [
@@ -39,7 +45,13 @@ Form.render = function render (state) {
     ]),
 
     h('form.ui.form', {
-      'ev-event': sendSubmit(state.channels.submit)
+      'ev-event': [
+        events.change(state.channels.submit, {
+          data: {active: false},
+          ignore: !state.submitted
+        }),
+        events.submit(state.channels.submit)
+      ]
     }, [
 
       // First Name
