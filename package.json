@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "standard",
     "open": "budo ./index.js:bundle.js --open --live -- -t brfs"
   },
   "author": "",
@@ -16,11 +16,13 @@
     "highlight.js": "^9.3.0",
     "highlightjs": "^8.7.0",
     "lodash": "^4.11.1",
+    "nhg": "^0.4.0",
     "strip-comments": "^0.4.4",
     "value-event": "^5.1.0",
     "xtend": "^4.0.1"
   },
   "devDependencies": {
-    "budo": "^8.2.2"
+    "budo": "^8.2.2",
+    "standard": "^6.0.8"
   }
 }
